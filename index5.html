@@ -24,6 +24,29 @@
        </div>
    </div>
 
-   
+   <script>
+       Let hours = document.getElementById('hours');
+       Let minutes = document.getElementById('minutes');
+       Let seconds = document.getElementById('seconds');
+       Let ampm = document.getElementById('ampm');
+
+       Let h = new Date().getHours();
+       Let m = new Date().getMinutes();
+       Let s = new Date().getSeconds();
+       Let am = h >= 12 ? "PM" : "AM";
+
+       if (h > 12){
+           h = h -12;
+       }
+
+       h = (h < 10) ? "0" + h : h;
+       m = (m < 10) ? "0" + m : m;
+       s = (s < 10) ? "0" + s : s;
+
+       hours.innerHTML = h;
+       minutes.innerHTML = m;
+       seconds.innerHTML = s;
+       ampm.innerHTML = am
+   </script>
 </body>
 </html>
