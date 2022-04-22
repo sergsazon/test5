@@ -9,14 +9,29 @@
 </head>
 <body>
    <div id="time">
-       <div class="circle">
+       <div class="circle" style="--clr:#ff2972;">
+        <div class="dots hr_dot"></div>
+           <svg>
+               <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+           </svg>
            <div id="hours">00</div>
 
        </div>
-       <div class="circle">
+       <div class="circle" style="--clr:#fee800;">
+        <div class="dots min_dot"></div>
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+             <circle cx="70" cy="70" r="70" id="mm"></circle>
+        </svg>
            <div id="minutes">00</div>
        </div>
-       <div class="circle">
+       <div class="circle" style="--clr:#04fc43;">
+        <div class="dots sec_dot"></div>
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+             <circle cx="70" cy="70" r="70" id="ss"></circle>
+        </svg> 
            <div id="seconds">00</div>
        </div>
        <div class="ap">
@@ -25,10 +40,19 @@
    </div>
 
    <script>
+       setInterval(() =>{
        Let hours = document.getElementById('hours');
        Let minutes = document.getElementById('minutes');
        Let seconds = document.getElementById('seconds');
        Let ampm = document.getElementById('ampm');
+
+       Let hh = document.getElementById('hh');
+       Let mm = document.getElementById('mm');
+       Let ss = document.getElementById('ss');
+
+       Let hr_dot = document.querySelector('.hr_dot');
+       Let min_dot = document.querySelector('.min_dot');
+       Let sec_dot = document.querySelector('.sec_dot');
 
        Let h = new Date().getHours();
        Let m = new Date().getMinutes();
@@ -36,7 +60,7 @@
        Let am = h >= 12 ? "PM" : "AM";
 
        if (h > 12){
-           h = h -12;
+           h = h - 12;
        }
 
        h = (h < 10) ? "0" + h : h;
@@ -46,7 +70,14 @@
        hours.innerHTML = h;
        minutes.innerHTML = m;
        seconds.innerHTML = s;
-       ampm.innerHTML = am
+       ampm.innerHTML = am;
+
+       hh.style.strokeDashoffset = 440 - (440 * h) / 12;
+       mm.style.strokeDashoffset = 440 - (440 * m) / 60;
+       ss.style.strokeDashoffset = 440 - (440 * s) / 60;
+
+       hr_dot.style.transform = 'rotate(${h * 30})';
+    })
    </script>
 </body>
 </html>
