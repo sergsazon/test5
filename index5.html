@@ -15,7 +15,7 @@
                <circle cx="70" cy="70" r="70"></circle>
                 <circle cx="70" cy="70" r="70" id="hh"></circle>
            </svg>
-           <div id="hours">00</div>
+           <div id="hours">11</div>
 
        </div>
        <div class="circle" style="--clr:#fee800;">
@@ -24,7 +24,7 @@
             <circle cx="70" cy="70" r="70"></circle>
              <circle cx="70" cy="70" r="70" id="mm"></circle>
         </svg>
-           <div id="minutes">00</div>
+           <div id="minutes">44</div>
        </div>
        <div class="circle" style="--clr:#04fc43;">
         <div class="dots sec_dot"></div>
@@ -32,7 +32,7 @@
             <circle cx="70" cy="70" r="70"></circle>
              <circle cx="70" cy="70" r="70" id="ss"></circle>
         </svg> 
-           <div id="seconds">00</div>
+           <div id="seconds">15</div>
        </div>
        <div class="ap">
        <div id="ampm">AM</div>
@@ -41,23 +41,23 @@
 
    <script>
        setInterval(() =>{
-       Let hours = document.getElementById('hours');
-       Let minutes = document.getElementById('minutes');
-       Let seconds = document.getElementById('seconds');
-       Let ampm = document.getElementById('ampm');
+       let hours = document.getElementById('hours');
+       let minutes = document.getElementById('minutes');
+       let seconds = document.getElementById('seconds');
+       let ampm = document.getElementById('ampm');
 
-       Let hh = document.getElementById('hh');
-       Let mm = document.getElementById('mm');
-       Let ss = document.getElementById('ss');
+       let hh = document.getElementById('hh');
+       let mm = document.getElementById('mm');
+       let ss = document.getElementById('ss');
 
-       Let hr_dot = document.querySelector('.hr_dot');
-       Let min_dot = document.querySelector('.min_dot');
-       Let sec_dot = document.querySelector('.sec_dot');
+       let hr_dot = document.querySelector('.hr_dot');
+       let min_dot = document.querySelector('.min_dot');
+       let sec_dot = document.querySelector('.sec_dot');
 
-       Let h = new Date().getHours();
-       Let m = new Date().getMinutes();
-       Let s = new Date().getSeconds();
-       Let am = h >= 12 ? "PM" : "AM";
+       let h = new Date().getHours();
+       let m = new Date().getMinutes();
+       let s = new Date().getSeconds();
+       let am = h >= 12 ? "PM" : "AM";
 
        if (h > 12){
            h = h - 12;
@@ -76,7 +76,7 @@
        mm.style.strokeDashoffset = 440 - (440 * m) / 60;
        ss.style.strokeDashoffset = 440 - (440 * s) / 60;
 
-       hr_dot.style.transform = 'rotate(${h * 30})';
+       hr_dot.style.transform = 'rotate(${h * 30}deg)';
     })
    </script>
 </body>
