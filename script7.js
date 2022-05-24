@@ -27,6 +27,7 @@ class FlowFieldEffect{
         this.#ctx.stroke();
     }
     animate(){
+        this.#ctx.clearRect(0, 0, this.#width, this.#height);
         this.#draw(this.x, this.y);
         this.x += 0.5;
         this.y += 2.5;
